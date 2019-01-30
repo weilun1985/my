@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/myweb-demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myweb/src/main/java/ActionGroupImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb/src/main/java/com/li/myweb/annotation/Layout.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb/src/main/java/com/li/myweb/annotation/OutputCache.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb/src/main/java/com/li/myweb/caching/OutputCachedFilter.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb/src/main/java/com/li/myweb/caching/OutputOSCache.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb/src/main/java/com/li/myweb/caching/PageCacheDepends.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb/src/main/java/com/li/myweb/exceptions/NeedSetMasterInfoException.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb/src/main/java/com/li/myweb/security/InterceptorFilter.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb/src/main/java/com/li/myweb/security/LocalFileList.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb/src/main/java/com/li/myweb/security/RemoteList.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb/src/main/java/com/li/myweb/supports/ActionGroupInfo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb/src/main/java/com/li/myweb/supports/ActionInfo.java" charset="GBK" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+</project>
