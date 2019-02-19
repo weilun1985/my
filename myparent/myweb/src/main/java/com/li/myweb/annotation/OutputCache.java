@@ -5,7 +5,7 @@ import java.lang.annotation.Target;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.ElementType;
 
-import eagle.web.HttpRuntime;
+import com.li.myweb.HttpRuntime;
 
 //¿ØÖÆÒ³Ãæ»º´æ
 @Retention(RetentionPolicy.RUNTIME)

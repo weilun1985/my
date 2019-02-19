@@ -14,7 +14,7 @@ public class HttpRuntime {
 	//public static final String VERSION;
 	public static final int OUTPUTCACHEPERIODS=300;
 	
-	public final static String FRAME_CONFIG_PAREMNAME="eagle.web";
+	public final static String FRAME_CONFIG_PAREMNAME="com.li.myweb";
 	public final static String APP_ATTR_SERVER="Server";
 	public final static String APP_ATTR_APP="Application";
 	public final static String APP_ATTR_OSCACHE="oscache";

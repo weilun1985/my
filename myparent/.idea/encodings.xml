@@ -2,6 +2,27 @@
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$/myweb-demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/myweb.properties" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/layoutctrl.action2.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/layoutctrl.action5.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/layoutctrl.action6.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/layoutctrl.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/master.style1.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/master.style2.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/simple.csonparam.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/simple.default.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/simple.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/simple.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/simple.model.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/simple.modelarray.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/simple.multiout.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/simple.simplearray.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/simple.simpleparam.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/simple.string.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/specify.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/WEB-INF/views/upload.httl" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/java/controller/Artifice.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/myweb-demo/src/main/webapp/java/demo/controller/simple.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/myweb/src/main/java/ActionGroupImpl.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/myweb/src/main/java/com/li/myweb/annotation/Layout.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/myweb/src/main/java/com/li/myweb/annotation/OutputCache.java" charset="GBK" />

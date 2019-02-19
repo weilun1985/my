@@ -1,0 +1,20 @@
+﻿<!--#define(String Content,String title)-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+</head>
+<body>
+<p>母版页：demo.controller.master.style2.httl</p>
+<p>母版参数：title=${title}</p>
+<p>以下红框内部分为内容页输出</p>
+
+<p style="border:1px red solid;padding:10px;width:800px;">
+<!--#if(Content!=null)-->
+${Content}
+<!--#end-->
+</p>
+
+</body>
+</html>

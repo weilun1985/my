@@ -113,6 +113,11 @@ public class HttpApplication implements ServletContext {
 	}
 
 	@Override
+	public String getVirtualServerName() {
+		return this.context.getVirtualServerName();
+	}
+
+	@Override
 	public Object getAttribute(String arg0) {
 		return this.context.getAttribute(arg0);
 	}

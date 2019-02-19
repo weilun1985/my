@@ -16,7 +16,7 @@ import com.li.myweb.HttpServerUtility;
 import com.li.myweb.exceptions.ActionFlushImme;
 import com.li.myweb.exceptions.ActionInterrupt;
 
-public class StormwebHttpServlet extends HttpServlet {
+public class MyHttpServlet extends HttpServlet {
 	/**
 	 * 
 	 */

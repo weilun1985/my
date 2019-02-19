@@ -39,20 +39,22 @@ public class HttpServerUtility {
 		//this.contrlJar=this.configure.getMVCSet().getControllerJAR();
 		this.contrlPkg=this.configure.getMVCSet().getControllerPKG();
 		application.setAttribute(HttpRuntime.APP_CONTRLPACKAGE, this.contrlPkg);
-		this.templateRoot=this.configure.getMVCSet().getVMRoot();
-		if(this.templateRoot==null||(this.templateRoot=this.templateRoot.trim()).length()==0){
-			this.templateRoot=this.mapPath("/WEB-INF/views/");
-			File file=new File(this.templateRoot);
-			if(!file.exists()){
-				String tmp2=this.mapPath("/views/");
-				file=new File(tmp2);
-				if(file.exists())
-					this.templateRoot=tmp2;
-			}
-		}
-		else{
-			this.templateRoot=this.application.getRealPath(this.templateRoot);
-		}
+		this.templateRoot=this.mapPath("/WEB-INF/views/");
+
+//		this.templateRoot=this.configure.getMVCSet().getVMRoot();
+//		if(this.templateRoot==null||(this.templateRoot=this.templateRoot.trim()).length()==0){
+//			this.templateRoot=this.mapPath("/WEB-INF/views/");
+//			File file=new File(this.templateRoot);
+//			if(!file.exists()){
+//				String tmp2=this.mapPath("/views/");
+//				file=new File(tmp2);
+//				if(file.exists())
+//					this.templateRoot=tmp2;
+//			}
+//		}
+//		else{
+//			this.templateRoot=this.application.getRealPath(this.templateRoot);
+//		}
 		this.igpath=this.configure.getMVCSet().getIgPath();
 		//this.urlpattern=this.configure.getMVCSet().getUrlPatten().toLowerCase();
 		/*String urlpatten=this.configure.getMVCSet().getUrlPatten();

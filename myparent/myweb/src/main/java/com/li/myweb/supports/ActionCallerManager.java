@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.li.myweb.DynamicCompiler;
+import com.li.core.DynamicCompiler;
 import com.li.myweb.ActionGroupImpl;
 import com.li.myweb.HttpMethod;
 import com.li.myweb.HttpRequest;
@@ -183,14 +183,18 @@ public class ActionCallerManager {
 		srcsb.append("import java.util.*;\r\n");
 		srcsb.append("import java.io.Writer;\r\n");
 		srcsb.append("import java.io.StringWriter;\r\n");
-		srcsb.append("import eagle.web.exceptions.ActionFlushImme;\r\n");
-		srcsb.append("import eagle.web.exceptions.ActionInterrupt;\r\n");
-		srcsb.append("import eagle.web.HttpRequest;\r\n");
-		srcsb.append("import eagle.web.HttpResponse;\r\n");
-		srcsb.append("import eagle.web.HttpContext;\r\n");
-		srcsb.append("import eagle.web.supports.ActionCaller;\r\n");
-		srcsb.append("import org.springframework.web.context.WebApplicationContext;\r\n");
-		srcsb.append("import org.springframework.web.context.support.WebApplicationContextUtils;\r\n");
+		srcsb.append("import com.li.myweb.exceptions.*;\r\n");
+		srcsb.append("import com.li.myweb.*;\r\n");
+		srcsb.append("import com.li.myweb.supports.*;\r\n");
+		//srcsb.append("import com.li.myweb.exceptions.ActionFlushImme;\r\n");
+		//srcsb.append("import com.li.myweb.exceptions.ActionInterrupt;\r\n");
+		//srcsb.append("import com.li.myweb.HttpRequest;\r\n");
+		//srcsb.append("import com.li.myweb.HttpResponse;\r\n");
+		//srcsb.append("import com.li.myweb.HttpContext;\r\n");
+		//srcsb.append("import com.li.myweb.supports.ActionCaller;\r\n");
+		srcsb.append("import com.li.cson.CSON2;\r\n");
+		//srcsb.append("import org.springframework.web.context.WebApplicationContext;\r\n");
+		//srcsb.append("import org.springframework.web.context.support.WebApplicationContextUtils;\r\n");
 		srcsb.append("\r\n");
 		srcsb.append("public class " + simpleName
 				+ " extends ActionCaller {\r\n");
@@ -234,7 +238,7 @@ public class ActionCallerManager {
 		srcsb.append("public void call() throws Throwable{\r\n");
 		srcsb.append("this.resp.setCurrentCaller(this);\r\n");
 		srcsb.append(String
-				.format("this.req.setAttribute(eagle.web.HttpRuntime.REQATTR_EXECCURRENT,\"%s@%s\");\r\n",
+				.format("this.req.setAttribute(HttpRuntime.REQATTR_EXECCURRENT,\"%s@%s\");\r\n",
 						aw.classi.getName(), aw.method.getName()));
 		if (!aw.useAsMaster()) {
 			// 添加Http请求方法验证
@@ -285,22 +289,23 @@ public class ActionCallerManager {
 			srcsb.append("return;\r\n");
 			srcsb.append("}\r\n");
 		}
-		// Spring
-		Object beanObj=this.getSpringBean(cls);
-		if (beanObj == null) {
-			// 实例化与调用动作
-			srcsb.append("inst=new " + cls.getName() + "();\r\n");
-		} else {
-			// 调用Spring getBean()
-			srcsb.append("WebApplicationContext app=WebApplicationContextUtils.getWebApplicationContext(eagle.web.HttpContext.current().application().getServletContext());\r\n");
-			if(beanObj instanceof String){
-				srcsb.append("inst=(" + cls.getName() + ")app.getBean(\"" + beanObj.toString()
-						+ "\");\r\n");
-			}else{
-				srcsb.append("inst=(" + cls.getName() + ")app.getBean(" + cls.getName()
-						+ ".class);\r\n");
-			}
-		}
+		srcsb.append("inst=new " + cls.getName() + "();\r\n");
+//		// Spring
+//		Object beanObj=this.getSpringBean(cls);
+//		if (beanObj == null) {
+//			// 实例化与调用动作
+//			srcsb.append("inst=new " + cls.getName() + "();\r\n");
+//		} else {
+//			// 调用Spring getBean()
+//			srcsb.append("WebApplicationContext app=WebApplicationContextUtils.getWebApplicationContext(HttpContext.current().application().getServletContext());\r\n");
+//			if(beanObj instanceof String){
+//				srcsb.append("inst=(" + cls.getName() + ")app.getBean(\"" + beanObj.toString()
+//						+ "\");\r\n");
+//			}else{
+//				srcsb.append("inst=(" + cls.getName() + ")app.getBean(" + cls.getName()
+//						+ ".class);\r\n");
+//			}
+//		}
 
 		if (!aw.useAsMaster()) {
 			// 判断缓存
@@ -375,33 +380,33 @@ public class ActionCallerManager {
 			srcsb.append("String accept=this.req.getHeader(\"Accept\");\r\n");
 			srcsb.append("if(accept!=null&&accept.equalsIgnoreCase(\"CSONB\")){\r\n");
 			srcsb.append("this.resp.setHeader(\"Binding\",\"csonb\");\r\n");
-			srcsb.append("eagle.cson.CSON2.serialize(_result,this.resp.getOutputStream(),true);\r\n");
+			srcsb.append("CSON2.serialize(_result,this.resp.getOutputStream(),true);\r\n");
 			srcsb.append("}else if(accept!=null&&accept.equalsIgnoreCase(\"CSONS\")){\r\n");
 			srcsb.append("this.resp.setHeader(\"Binding\",\"csons\");\r\n");
-			srcsb.append("this.resp.write(eagle.cson.CSON2.serializeBase64(_result,true));\r\n");
+			srcsb.append("this.resp.write(CSON2.serializeBase64(_result,true));\r\n");
 			srcsb.append("}else if(accept!=null&&accept.equalsIgnoreCase(\"JSON\")){\r\n");
 			srcsb.append("this.resp.setHeader(\"Binding\",\"json\");\r\n");
-			srcsb.append("this.resp.write(eagle.web.Utils.writeJson(_result));\r\n");
+			srcsb.append("this.resp.write(Utils.writeJson(_result));\r\n");
 			srcsb.append("}else{\r\n");
 			if (dataonly) {
 				if (cson != null) {
 					if (cson.binary()) {
 						srcsb.append("this.resp.setContentType(\"text/html\");\r\n");
 						srcsb.append("this.resp.setHeader(\"Binding\",\"csonb\");\r\n");
-						srcsb.append("eagle.cson.CSON2.serialize(_result,this.resp.getOutputStream(),"
+						srcsb.append("CSON2.serialize(_result,this.resp.getOutputStream(),"
 								+ (cson.compressed() ? "true" : "false")
 								+ ");\r\n");
 					} else {
 						srcsb.append("this.resp.setContentType(\"text/html\");\r\n");
 						srcsb.append("this.resp.setHeader(\"Binding\",\"csons\");\r\n");
-						srcsb.append("this.resp.write(eagle.cson.CSON2.serializeBase64(_result,"
+						srcsb.append("this.resp.write(CSON2.serializeBase64(_result,"
 								+ (cson.compressed() ? "true" : "false")
 								+ "));\r\n");
 					}
 				} else if (json != null) {
 					srcsb.append("this.resp.setContentType(\"text/html\");\r\n");
 					srcsb.append("this.resp.setHeader(\"Binding\",\"json\");\r\n");
-					srcsb.append("this.resp.write(eagle.web.Utils.writeJson(_result));\r\n");
+					srcsb.append("this.resp.write(Utils.writeJson(_result));\r\n");
 				}
 			} else {
 

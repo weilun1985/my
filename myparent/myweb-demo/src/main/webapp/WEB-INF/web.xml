@@ -4,4 +4,18 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <context-param>
+    <param-name>com.li.myweb</param-name>
+    <param-value>
+      enc:req=utf-8,resp=utf-8,resph=utf-8;
+      mvc:jar=,pkg=demo.controller,urlpatten=*.do;
+      oscache:memory=true,capacity=10000;
+      outputcache:memory=true,capacity=10000;
+      holdup:whitelist=,blacklist=,auto=false,auto-forbidexp=1,auto-accesslim=10;
+      upload:maxmemsize=2048000, filesizemax=2048000;
+    </param-value>
+  </context-param>
+  <listener>
+    <listener-class>com.li.myweb.ApplicationListener</listener-class>
+  </listener>
 </web-app>

@@ -10,16 +10,16 @@ import com.opensymphony.oscache.general.GeneralCacheAdministrator;
 
 public class OSCache {
 	public OSCache(Properties props){
-		//��ʼ��ȫ��OSCache
+		//初始化全局OSCache
 		_cacheAdmin=new GeneralCacheAdministrator(props);
 		_cachePeriods=new ConcurrentHashMap<String,Integer>();
 	}
-	private GeneralCacheAdministrator _cacheAdmin;   				//������
-	private ConcurrentHashMap<String,Integer> _cachePeriods;        //�������ʱ���¼��
-	
-	//��ӻ���
+	private GeneralCacheAdministrator _cacheAdmin;   				//缓存类
+	private ConcurrentHashMap<String,Integer> _cachePeriods;        //缓存更新时间记录器
+
+	//添加缓存
 	public void set(String key,Object value,Date absoluteExpiration){
-		//�������ʱ��
+		//计算过期时间
 		long timespan=(absoluteExpiration.getTime()-new Date().getTime())/1000;
 		if(timespan<0)
 			return;
@@ -28,10 +28,10 @@ public class OSCache {
 		this.set(key, value, (int)timespan);
 	}
 	public void set(String key,Object value,int timespan){
-		_cacheAdmin.putInCache(key, value);    //���뻺��
-		_cachePeriods.put(key, timespan);      //�������ʱ��
+		_cacheAdmin.putInCache(key, value);    //插入缓存
+		_cachePeriods.put(key, timespan);      //插入过期时间
 	}
-	//��ȡ����
+	//读取缓存
 	public Object get(String key){
 		Integer periodsInt=_cachePeriods.get(key);
 		int periods;
@@ -46,12 +46,12 @@ public class OSCache {
 			return null;
 		}
 	}
-	//ɾ������
+	//删除缓存
 	public void remove(String key){
 		_cacheAdmin.removeEntry(key);
 		_cachePeriods.remove(key);
 	}
-	//������л���
+	//清除所有缓存
 	public void clear(){
 		_cacheAdmin.flushAll();
 		_cachePeriods.clear();

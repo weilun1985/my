@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.li.myweb.HttpRuntime;
 
-public class StormwebContextAttributeListener implements
+public class MyContextAttributeListener implements
 		ServletContextAttributeListener {
 	
 	@Override

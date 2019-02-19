@@ -39,6 +39,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import com.li.core.StringParseUnSupportException;
 import com.li.core.StringParser;
 import com.li.cson.CSON2;
+import com.alibaba.fastjson.JSON;
 
 public class Utils {
 	public static class ParamParser{
@@ -949,7 +950,7 @@ public class Utils {
 		}
 		try {
 			//return jsonOM.writeValueAsString(obj);
-			return com.alibaba.fastjson.JSON.toJSONString(obj);
+			return JSON.toJSONString(obj);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -957,19 +958,19 @@ public class Utils {
 	}
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static Object readJson(String json,Class cls){
-		return com.alibaba.fastjson.JSON.parseObject(json, cls);
+		return JSON.parseObject(json, cls);
 	}
 	@SuppressWarnings("rawtypes")
 	public static Object[] readJson(String json, Class[] cls){
-		return com.alibaba.fastjson.JSON.parseArray(json, cls).toArray();
+		return JSON.parseArray(json, cls).toArray();
 	}
 	@SuppressWarnings("rawtypes")
 	public static Object readCson(String cson,Class cls){
-		return eagle.cson.CSON2.deserialize(cson, cls);
+		return CSON2.deserialize(cson, cls);
 	}
 	@SuppressWarnings("rawtypes")
 	public static Object[] readCson(String cson,Class[] cls){
-		return (Object[])eagle.cson.CSON2.deserialize(cson, cls);
+		return (Object[])CSON2.deserialize(cson, cls);
 	}
 	
 }

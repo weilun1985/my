@@ -4,7 +4,9 @@ import java.io.File;
 import java.util.Properties;
 
 import org.apache.velocity.app.VelocityEngine;
-import com.googlecode.httl.Engine;
+//import com.googlecode.httl.Engine;
+import httl.Engine;
+//import httl.Template;
 
 import com.li.myweb.templates.HttlTemplate;
 import com.li.myweb.templates.Template;
@@ -46,17 +48,25 @@ public class TemplateEngine {
 		this.vtlEngine.init(this.properties);
 	}
 	private void initHttlEngine(){
-		//Properties properties=new Properties();
-		//properties.put(Engine.TEMPLATE_DIRECTORY, this.tmproot);
-		this.properties.put(Engine.TEMPLATE_DIRECTORY, this.tmproot);
-		/*properties.put(Engine.INPUT_ENCODING, "UTF-8");
-		properties.put(Engine.LOADER, "com.googlecode.httl.support.loaders.FileLoader");
-		properties.put(Engine.PARSER, "com.googlecode.httl.support.parsers.CommentParser");
-		properties.put(Engine.COMPILE_DIRECTORY, this.approot+HttpRuntime.PATHSEPARATOR+"WEB-INF"+HttpRuntime.PATHSEPARATOR+"_httlcomplied");
-		properties.put(Engine.RELOADABLE, "true");*/
-		//if(this.outputenc!=null)
-		//	properties.put(Engine.OUTPUT_ENCODING,this.outputenc);
-		this.httlEngine=Engine.getEngine(properties);
+//		//Properties properties=new Properties();
+//		//properties.put(Engine.TEMPLATE_DIRECTORY, this.tmproot);
+//		this.properties.put(Engine.TEMPLATE_DIRECTORY, this.tmproot);
+//		/*properties.put(Engine.INPUT_ENCODING, "UTF-8");
+//		properties.put(Engine.LOADER, "com.googlecode.httl.support.loaders.FileLoader");
+//		properties.put(Engine.PARSER, "com.googlecode.httl.support.parsers.CommentParser");
+//		properties.put(Engine.COMPILE_DIRECTORY, this.approot+HttpRuntime.PATHSEPARATOR+"WEB-INF"+HttpRuntime.PATHSEPARATOR+"_httlcomplied");
+//		properties.put(Engine.RELOADABLE, "true");*/
+//		//if(this.outputenc!=null)
+//		//	properties.put(Engine.OUTPUT_ENCODING,this.outputenc);
+//		this.httlEngine=Engine.getEngine(properties);
+		Properties httl_props=new Properties();
+		httl_props.put("template.directory", this.tmproot);
+		httl_props.put("template.suffix", ".httl");
+		httl_props.put("reloadable", "true");
+		httl_props.put("loaders","httl.spi.loaders.FileLoader");
+		httl_props.put("input.encoding","UTF-8");
+		httl_props.put("precompiled", "false");
+		this.httlEngine=Engine.getEngine(httl_props);
 	}
 	public Template get(String name){
 		Template template=null;
@@ -67,7 +77,7 @@ public class TemplateEngine {
 			    template=new VtlTemplate(inner);
 			}
 			else if(name.endsWith("httl")){
-				com.googlecode.httl.Template inner=this.httlEngine.getTemplate(name);
+				httl.Template inner=this.httlEngine.getTemplate(name);
 			    template=new HttlTemplate(inner);
 			}
 			else{

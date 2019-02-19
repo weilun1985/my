@@ -1,17 +1,15 @@
 package com.li.myweb.caching;
 
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.util.Locale;
+import com.li.myweb.ResponseContent;
+import com.opensymphony.oscache.web.filter.SplitServletOutputStream;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
-
-import com.opensymphony.oscache.web.filter.SplitServletOutputStream;
-
-import com.li.myweb.ResponseContent;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.Locale;
 
 public class CacheHttpServletResponseWrapper extends HttpServletResponseWrapper {
 	public CacheHttpServletResponseWrapper(HttpServletResponse response) {

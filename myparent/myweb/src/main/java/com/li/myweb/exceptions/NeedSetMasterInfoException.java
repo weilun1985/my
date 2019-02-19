@@ -1,6 +1,6 @@
 package com.li.myweb.exceptions;
 
-import eagle.web.ActionGroupImpl;
+import com.li.myweb.ActionGroupImpl;
 
 public class NeedSetMasterInfoException extends RuntimeException {
 	

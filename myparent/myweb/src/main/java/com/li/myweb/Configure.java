@@ -11,8 +11,8 @@ import java.util.Map.Entry;
 import java.util.Properties;
 
 public class Configure {
-	public static final String DEFAULT_FILE="stormweb-default.properties";
-	public static final String VARIABLES_PREFIX="stormweb.variables.";
+	public static final String DEFAULT_FILE="myweb-default.properties";
+	public static final String VARIABLES_PREFIX="myweb.variables.";
 	//编码方式
 	public class Encode{
 		public static final String REQUEST="stormweb.enc.req";
@@ -85,9 +85,9 @@ public class Configure {
 		//路径识别时忽略的路径
 		private String igpath;
 		
-		public String getVMRoot(){
-			return vmroot;
-		}
+//		public String getVMRoot(){
+//			return vmroot;
+//		}
 		/*public String getUrlPatten(){
 			return urlpatten;
 		}*/

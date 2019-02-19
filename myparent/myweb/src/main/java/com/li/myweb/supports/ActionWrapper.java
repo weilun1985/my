@@ -2,7 +2,7 @@ package com.li.myweb.supports;
 
 import java.lang.reflect.Method;
 
-import eagle.web.HttpMethod;
+import com.li.myweb.HttpMethod;
 
 public class ActionWrapper {
 	public ActionWrapper(Class<?> cls

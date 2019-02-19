@@ -11,7 +11,7 @@ import java.util.Map.Entry;
 import java.util.regex.Pattern;
 import java.util.UUID;
 
-import eagle.cson.CSON2;
+import com.li.cson.CSON2;
 
 public class HttpParamterParser {
 	// private StringBuffer source;
@@ -82,7 +82,7 @@ public class HttpParamterParser {
 		} else if (c == Date.class) {
 			express = "com.li.myweb.supports.HttpParamterParser.StrToDate(tmp_pmvalue)";
 		} else if (c == CSON2.class) {
-			express = "eagle.cson.CSON2.read0(tmp_pmvalue)";
+			express = "CSON2.read0(tmp_pmvalue)";
 		} else {
 			try {
 				@SuppressWarnings("unchecked")
@@ -275,7 +275,7 @@ public class HttpParamterParser {
 		// CSON参数
 		srcsb.append("else{\r\n");
 		srcsb.append(varexp + "=(" + clsname + (arrayMode ? "[]" : "")
-				+ ")eagle.cson.CSON2.deserialize(tmp_pmvalue," + clsname
+				+ ")CSON2.deserialize(tmp_pmvalue," + clsname
 				+ (arrayMode ? "[].class" : ".class") + ");\r\n");
 		srcsb.append("}\r\n");
 		srcsb.append("}\r\n");
@@ -373,13 +373,13 @@ public class HttpParamterParser {
 		// 处理CSON|JSON整体参数
 		source.append("if((tmp_pmvalues="+mapname+".get(\"_csonpm\"))!=null&&tmp_pmvalues.length>0&&(tmp_pmvalue=tmp_pmvalues[0])!=null&&tmp_pmvalue.length()>0){\r\n");
 		source.append("String _csonpm=tmp_pmvalue;\r\n");
-		source.append("Object[] _pm_objs=com.li.myweb.Utils.readCson(_csonpm,_pm_types);\r\n");
+		source.append("Object[] _pm_objs=Utils.readCson(_csonpm,_pm_types);\r\n");
 		for(int i=0;i<nameList.length;i++){
 			source.append(nameList[i]+"=("+(clsList[i].isArray()?this.getArrayElementClass(clsList[i]).getName() + "[]":this.getPackingClass(clsList[i]))+")_pm_objs["+i+"];\r\n");
 		}
 		source.append("}else if((tmp_pmvalues="+mapname+".get(\"_jsonpm\"))!=null&&tmp_pmvalues.length>0&&(tmp_pmvalue=tmp_pmvalues[0])!=null&&tmp_pmvalue.length()>0){\r\n");
 		source.append("String _jsonpm=tmp_pmvalue;\r\n");
-		source.append("Object[] _pm_objs=com.li.myweb.Utils.readJson(_jsonpm,_pm_types);\r\n");
+		source.append("Object[] _pm_objs=Utils.readJson(_jsonpm,_pm_types);\r\n");
 		for(int i=0;i<nameList.length;i++){
 			source.append(nameList[i]+"=("+(clsList[i].isArray()?this.getArrayElementClass(clsList[i]).getName() + "[]":this.getPackingClass(clsList[i]))+")_pm_objs["+i+"];\r\n");
 		}

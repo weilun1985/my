@@ -4,10 +4,10 @@ import java.io.Writer;
 import java.util.Map;
 
 public class HttlTemplate extends TemplateBase {
-	public HttlTemplate(com.googlecode.httl.Template temp){
+	public HttlTemplate(httl.Template temp){
 		this.mtemplate=temp;
 	}
-	private com.googlecode.httl.Template mtemplate;
+	private httl.Template mtemplate;
 	@Override
 	public void render(Map<String, Object> map, Writer writer){
 		// TODO Auto-generated method stub
