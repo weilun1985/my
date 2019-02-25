@@ -34,7 +34,8 @@ public class HttpParamterParser {
 		}
 		tempPos = time.indexOf("-");
 		if (tempPos > -1 && (time.indexOf(" ") < 0)) {
-			formatter = new SimpleDateFormat("yyyyMMddHHmmssZ");
+			//formatter = new SimpleDateFormat("yyyyMMddHHmmssZ");
+			formatter = new SimpleDateFormat("yyyy-MM-dd");
 		} else if ((time.indexOf("/") > -1) && (time.indexOf(" ") > -1)) {
 			formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		} else if ((time.indexOf("-") > -1) && (time.indexOf(" ") > -1)) {

@@ -73,7 +73,7 @@ public class MetaFactory {
 			JarEntry entry;  
 	        while ((entry = jarStream.getNextJarEntry()) != null) {  
 	        	String entryName=entry.getName();
-	        	if(!entryName.endsWith(".class")||!entryName.startsWith("eagle/cson/MetaDatas"))
+	        	if(!entryName.endsWith(".class")||!entryName.startsWith("com/li/cson/MetaDatas"))
 	        		continue;
 	        	String name=entryName.substring(0,entryName.length()-6).replace('/', '.');
 	        	Class<?> cls=Class.forName(name,true,loader);
@@ -105,7 +105,7 @@ public class MetaFactory {
 	private static ArrayList<Class<?>> getFromBin(String dir) {
 		ArrayList<Class<?>> list=new ArrayList<Class<?>>();
 		ClassLoader loader=Thread.currentThread().getContextClassLoader();
-		File file=new File(dir+"eagle/cson/MetaDatas");
+		File file=new File(dir+"com/li/cson/MetaDatas");
 		File[] childs = file.listFiles();
 		if(childs==null)
 			return null;

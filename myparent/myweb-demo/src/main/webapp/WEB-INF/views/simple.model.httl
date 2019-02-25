@@ -8,7 +8,7 @@
 <body>
 <p>
 <!--#if(u!=null)-->
-${u.Id} ${u.Name} ${u.Borthday}
+${u.Id} ${u.Name} ${u.Birthday} ${u.Cart.Name}
 <!--#end-->
 </p>
 </body>

@@ -30,7 +30,8 @@ public class simple {
 	 */
 	@Model("say")
 	public String string(){
-		return "你好呀，Hello,world,now time is "+new Date();
+
+	    return "你好呀，Hello,world,now time is "+new Date();
 	}
 	@Layout(templateOut=false)
 	public String string2(){
@@ -40,28 +41,28 @@ public class simple {
 	 * 简单参数,返回类型为Object[]
 	 */
 	@Model("rs")
-	public Object[] simpleparam(@Param("Title")String title,@Param("Index")Long index,@Param("m2a")String m2a){
+	public Object[] simpleparam(String title,Long index,String m2a){
 		return new Object[]{title,index,m2a,new Date()};
 	}
 	/*
 	 * 基本类型数组参数
 	 */
 	@Model("rs")
-	public String[] simpleArray(@Param("inputs")String[] inputs){
+	public String[] simpleArray(String[] inputs){
 		return inputs;
 	}
 	/*
 	 * 实体类型参数
 	 */
 	@Model("u")
-	public UserInfo model(@Param("user")UserInfo user){
+	public UserInfo model(UserInfo user){
 		return user;
 	}
 	/*
 	 * 实体数组型参数
 	 */
 	@Model("us")
-	public UserInfo[] modelArray(@Param("user")UserInfo[] user){
+	public UserInfo[] modelArray(UserInfo[] user){
 		String cson=CSON2.serializeBase64(user, false);
 		System.out.println(cson);
 		return user;
@@ -71,21 +72,24 @@ public class simple {
 	 */
 	@Model("u")
 	public UserInfo csonparam(@Param("cson")CSON2 cson){
-		return (UserInfo)cson.getData(0, UserInfo.class);
+
+	    return (UserInfo)cson.getData(0, UserInfo.class);
 	}
 	/*
 	 * 返回JSON数据
 	 */
 	@JSON
-	public UserInfo json(@Param("user")UserInfo user){
-		return user;
+	public UserInfo json(UserInfo user){
+
+	    return user;
 	}
 	/*
 	 * 返回CSON数据(BYTE)
 	 */
 	@CSON
-	public UserInfo cson(@Param("user")UserInfo user){
-		return user;
+	public UserInfo cson(UserInfo user){
+
+	    return user;
 	}
 	/*
 	 * 返回CSON数据(String)

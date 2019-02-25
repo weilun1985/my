@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class UserInfo {
 	private long Id;
-	private Date Borthday;
+	private Date Birthday;
 	private String Name;
 	public void setId(long id) {
 		Id = id;
@@ -12,11 +12,11 @@ public class UserInfo {
 	public long getId() {
 		return Id;
 	}
-	public void setBorthday(Date borthday) {
-		Borthday = borthday;
+	public void setBirthday(Date birthday) {
+		Birthday = birthday;
 	}
-	public Date getBorthday() {
-		return Borthday;
+	public Date getBirthday() {
+		return Birthday;
 	}
 	public void setName(String name) {
 		Name = name;
